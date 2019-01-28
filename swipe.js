@@ -18,7 +18,7 @@ window.addEventListener("touchmove", function(e){
   tpMoveX = touchPoint.pageX;
   tpMoveY = touchPoint.pageY;
 
-  if(tpMoveX > tpStartX){
+  if(tpMoveX < tpStartX){
     resultF++;
     document.getElementById("fahrenheit").value = resultF;
     getC();
@@ -28,7 +28,7 @@ window.addEventListener("touchmove", function(e){
     document.getElementById("fahrenheit").value = resultF;
     getC();
   }
-  // 
+  //
   // if(tpMoveY < tpStartY){
   //   resultF++;
   //   document.getElementById("fahrenheit").value = resultF;
