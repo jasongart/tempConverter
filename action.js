@@ -50,6 +50,7 @@ calculateTemp[1].addEventListener("input", function(event){
 // Color objects
 
 var ddPurple = {
+    startTemp: -50,
     endTemp: -10,
     hexNum: "#372a3d",
     red: 55,
@@ -58,6 +59,7 @@ var ddPurple = {
 };
 
 var darkPurple = {
+    startTemp: -10,
     endTemp: 0,
     hexNum: "#562d58",
     red: 86,
@@ -66,6 +68,7 @@ var darkPurple = {
 };
 
 var indigo = {
+    startTemp: 0,
     endTemp: 10,
     hexNum: "#313b7b",
     red: 49,
@@ -74,6 +77,7 @@ var indigo = {
 };
 
 var darkBlue = {
+    startTemp: 10,
     endTemp: 20,
     hexNum: "#134b9e",
     red: 19,
@@ -82,6 +86,7 @@ var darkBlue = {
 };
 
 var blueO = {
+    startTemp: 20,
     endTemp: 30,
     hexNum: "#305adb",
     red: 48,
@@ -90,6 +95,7 @@ var blueO = {
 };
 
 var lightBlue = {
+    startTemp: 30,
     endTemp: 40,
     hexNum: "#0081d3",
     red: 0,
@@ -98,6 +104,7 @@ var lightBlue = {
 };
 
 var turquoise = {
+    startTemp: 40,
     endTemp: 50,
     hexNum: "#00a39a",
     red: 0,
@@ -106,6 +113,7 @@ var turquoise = {
 };
 
 var greenO = {
+    startTemp: 50,
     endTemp: 60,
     hexNum: "#00bb34",
     red: 0,
@@ -114,6 +122,7 @@ var greenO = {
 };
 
 var yellowGreen = {
+    startTemp: 60,
     endTemp: 70,
     hexNum: "#7ac600",
     red: 122,
@@ -122,6 +131,7 @@ var yellowGreen = {
 };
 
 var yellow = {
+    startTemp: 70,
     endTemp: 80,
     hexNum: "#d7c000",
     red: 215,
@@ -130,6 +140,7 @@ var yellow = {
 };
 
 var orange = {
+    startTemp: 80,
     endTemp: 90,
     hexNum: "#ef7600",
     red: 239,
@@ -138,6 +149,7 @@ var orange = {
 };
 
 var redO = {
+    startTemp: 90,
     endTemp: 100,
     hexNum: "#cd3400",
     red: 205,
@@ -146,7 +158,8 @@ var redO = {
 };
 
 var darkRed = {
-    endTemp: 110,
+    startTemp: 100,
+    endTemp: 150,
     hexNum: "#9f0d14",
     red: 159,
     green: 13,
@@ -154,20 +167,13 @@ var darkRed = {
 };
 
 var deepDarkRed = {
+    startTemp: 150,
     endTemp: 150,
     hexNum: "#581100",
     red: 88,
     green: 17,
     blue: 0
 };
-
-// var ddDarkRed = {
-//     endTemp: 451,
-//     hexNum: "#361e20",
-//     red: 54,
-//     green: 30,
-//     blue: 32
-// };
 
 
 //function to detect and run change color function
@@ -176,16 +182,20 @@ function changeBG(){
   var currentTemp = resultF;
 
   //conditions based on currentTemp which is = to the Fahrenheit input
-  if (currentTemp < -150){
-    // start = turquoise.startTemp;
-    // end = ddPurple.endTemp;
+  if (currentTemp < -50){
+    start = null;
+    end = null;
     red = ddPurple.red;
     blue = ddPurple.blue;
     green = ddPurple.green;
+    newRed = ddPurple.red;
+    newBlue = ddPurple.blue;
+    newGreen = ddPurple.green;
     }
 
-  if (currentTemp > -20 && currentTemp <= -10){
+  if (currentTemp > -50 && currentTemp <= -10){
     // start = turquoise.startTemp;
+    start = ddPurple.startTemp;
     end = ddPurple.endTemp;
     red = ddPurple.red;
     blue = ddPurple.blue;
@@ -197,6 +207,7 @@ function changeBG(){
 
   if (currentTemp > -10 && currentTemp <= 0){
     // start = turquoise.startTemp;
+    start = darkPurple.startTemp;
     end = darkPurple.endTemp;
     red = darkPurple.red;
     blue = darkPurple.blue;
@@ -208,6 +219,7 @@ function changeBG(){
 
   if (currentTemp > 0 && currentTemp <= 10){
     // start = turquoise.startTemp;
+    start = indigo.startTemp;
     end = indigo.endTemp;
     red = indigo.red;
     blue = indigo.blue;
@@ -219,6 +231,7 @@ function changeBG(){
 
   if (currentTemp > 10 && currentTemp <= 20){
     // start = turquoise.startTemp;
+    start = darkBlue.startTemp;
     end = darkBlue.endTemp;
     red = darkBlue.red;
     blue = darkBlue.blue;
@@ -230,6 +243,7 @@ function changeBG(){
 
     if (currentTemp > 20 && currentTemp <= 30){
       // start = turquoise.startTemp;
+      start = blueO.startTemp;
       end = blueO.endTemp;
       red = blueO.red;
       blue = blueO.blue;
@@ -241,6 +255,7 @@ function changeBG(){
 
   if (currentTemp > 30 && currentTemp <= 40){
     // start = turquoise.startTemp;
+    start = lightBlue.startTemp;
     end = lightBlue.endTemp;
     red = lightBlue.red;
     blue = lightBlue.blue;
@@ -252,6 +267,7 @@ function changeBG(){
 
   if (currentTemp > 40 && currentTemp <= 50){
     // start = turquoise.startTemp;
+    start = turquoise.startTemp;
     end = turquoise.endTemp;
     red = turquoise.red;
     blue = turquoise.blue;
@@ -263,6 +279,7 @@ function changeBG(){
 
   if (currentTemp > 50 && currentTemp <= 60){
     // start = green.startTemp;
+    start = greenO.startTemp;
     end = greenO.endTemp;
     red = greenO.red;
     blue = greenO.blue;
@@ -274,6 +291,7 @@ function changeBG(){
 
     if (currentTemp > 60 && currentTemp <= 70){
       // start = green.startTemp;
+      start = yellowGreen.startTemp;
       end = yellowGreen.endTemp;
       red = yellowGreen.red;
       blue = yellowGreen.blue;
@@ -285,6 +303,7 @@ function changeBG(){
 
     if (currentTemp > 70 && currentTemp <= 80){
         // start = green.startTemp;
+        start = yellow.startTemp;
         end = yellow.endTemp;
         red = yellow.red;
         blue = yellow.blue;
@@ -296,6 +315,7 @@ function changeBG(){
 
     if (currentTemp > 80 && currentTemp <= 90){
         // start = green.startTemp;
+        start = orange.startTemp;
         end = orange.endTemp;
         red = orange.red;
         blue = orange.blue;
@@ -307,6 +327,7 @@ function changeBG(){
 
     if (currentTemp > 90 && currentTemp <= 100){
         // start = green.startTemp;
+        start = redO.startTemp;
         end = redO.endTemp;
         red = redO.red;
         blue = redO.blue;
@@ -316,8 +337,9 @@ function changeBG(){
         targetGreen = darkRed.green;
     }
 
-    if (currentTemp > 100 && currentTemp <= 110){
+    if (currentTemp > 100 && currentTemp <= 150){
         // start = green.startTemp;
+        start = darkRed.startTemp;
         end = darkRed.endTemp;
         red = darkRed.red;
         blue = darkRed.blue;
@@ -327,6 +349,17 @@ function changeBG(){
         targetGreen = deepDarkRed.green;
     }
 
+    if (currentTemp > 150){
+      start = null;
+      end = null;
+      red = deepDarkRed.red;
+      blue = deepDarkRed.blue;
+      green = deepDarkRed.green;
+      targetRed = deepDarkRed.red;
+      targetBlue = deepDarkRed.blue;
+      targetGreen = deepDarkRed.green;
+      }
+
 
     //Numerical gap between starting and finishing value for RGB of each color object
     var redGap = Math.abs(targetRed - red);
@@ -334,9 +367,8 @@ function changeBG(){
     var greenGap = Math.abs(targetGreen - green);
     // percentage is "distance" current temp is from the end temperature
     //and is multiplied by the gap to get new color value
-    var tempPercent = (end - currentTemp) * .1;
-    var angle = 30;
-    var gradientPercent = tempPercent * 100;
+    var percMult = 1 / (end - start);
+    var tempPercent = (end - currentTemp) * percMult;
 
     //If target is greater the gap subtracts, if it's less the gap adds
     if (targetRed > red){
