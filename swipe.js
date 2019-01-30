@@ -1,4 +1,5 @@
 var touchPoint,
+    prevTouchPoint,
     tpStartX,
     tpMoveX,
     tpStartY,
@@ -18,15 +19,18 @@ window.addEventListener("touchmove", function(e){
   tpMoveX = touchPoint.pageX;
   tpMoveY = touchPoint.pageY;
 
-  if(tpMoveX < tpStartX){
+
+  if(tpMoveX > tpStartX){
     resultF++;
     document.getElementById("fahrenheit").value = resultF;
     getC();
+    tpStartX = tpMoveX;
   }
   else{
     resultF--;
     document.getElementById("fahrenheit").value = resultF;
     getC();
+    tpStartX = tpMoveX;
   }
   //
   // if(tpMoveY < tpStartY){
@@ -40,6 +44,7 @@ window.addEventListener("touchmove", function(e){
   //   getC();
   // }
 
+    console.log(tpStartX);
     console.log(tpMoveX);
     console.log(resultF);
 
